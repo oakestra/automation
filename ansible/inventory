@@ -1,0 +1,2 @@
+[nodes]
+NODENAME   ansible_host=NODE_IP ansible_user=USERNAME ansible_password=PASSWORD ansible_sudo_pass=SUDO_PASSWORD

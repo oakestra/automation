@@ -1,0 +1,20 @@
+- hosts: nodes
+  tasks:
+
+    - name: Kill Existing Node Engine 
+      shell: kill -9 $(ps -ax | grep NodeEngine | sed 's/|/ /' | awk '{print $1}')
+      become: true
+      ignore_errors: true
+
+    - name: Kill Existing Net Manager
+      shell: kill -9 $(ps -ax | grep NetManager | sed 's/|/ /' | awk '{print $1}')
+      become: true
+      ignore_errors: true
+
+    - name: Restart Net Manager
+      shell: nohup NetManager -p 6000 </dev/null >/tmp/netmanager.log 2>&1 &
+      become: true
+
+    - name: Restart Node Engine
+      shell: nohup NodeEngine -n 6000 -a 131.159.24.33 -p 10100 </dev/null >/tmp/nodeengine.log 2>&1 &
+      become: true
