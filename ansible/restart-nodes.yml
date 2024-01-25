@@ -16,5 +16,7 @@
       become: true
 
     - name: Restart Node Engine
-      shell: nohup NodeEngine -n 6000 -a 131.159.24.33 -p 10100 </dev/null >/tmp/nodeengine.log 2>&1 &
+      environment:
+        CLUSTER_IP: '{{ clusterIP }}'
+      shell: nohup NodeEngine -n 6000 -a $CLUSTER_IP -p 10100 </dev/null >/tmp/nodeengine.log 2>&1 &
       become: true
