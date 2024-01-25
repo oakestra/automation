@@ -3,7 +3,7 @@
 Table of content:
 
 - [🌳Root and Cluster Orchestrators🌳](#Root-and-Cluster-Orchestrators)
-	- [🌱 1-DOC (1 Device One Cluster)](#-1DOC-1-Device-One-Cluster)
+	- [🌱 1-DOC (1 Device One Cluster)](#-1-DOC-1-Device-One-Cluster)
 	- [🌳 Setup with full Root and Clusters hierarchy](#-Setup-with-full-Root-and-Clusters-hierarchy)
 	- [💀 Kill all Root and Cluster instances](#-Kill-all-Root-and-Cluster-instances)
 - [👷‍♀️Worker Nodes👷](#Worker-Nodes)
@@ -13,7 +13,7 @@ Table of content:
 
 ## 🌳Root and Cluster Orchestrators🌳
 
-###🌱 1-DOC (1 Device One Cluster)
+###🌱 1 DOC (1 Device One Cluster)
 
 In this section, we'll see how to automate the deployment of the root and cluster orchestrator in 1-DOC setup. Therefore, root and cluster orchestrator will run on the same machine. 
 Let's start by describing our `onedoc.yml` inventory file. This is a description of the root machine where we'll run our components. 
