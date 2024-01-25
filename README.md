@@ -6,4 +6,4 @@ Please remove any unique identifiers relevant to your setup so that your scripts
 
 ## Automation Index
 
-1. Ansible support (courtesy @giobarty): [one-line description to be added]
+1. Ansible support (courtesy @giobart): [one-line description to be added]
