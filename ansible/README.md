@@ -3,13 +3,13 @@
 Table of content:
 
 - [🌳Root and Cluster Orchestrators🌳](#Root-and-Cluster-Orchestrators)
-	- [🌱 1-DOC (1 Device One Cluster)](#-1-DOC-(1-Device-One-Cluster))
+	- [🌱 1-DOC (1 Device One Cluster)](#-1-DOC-1-Device-One-Cluster)
 	- [🌳 Setup with full Root and Clusters hierarchy](#-Setup-with-full-Root-and-Clusters-hierarchy)
 	- [💀 Kill all Root and Cluster instances](#-Kill-all-Root-and-Cluster-instances)
 - [👷‍♀️Worker Nodes👷](#Worker-Nodes)
-	- [⚙️ Install worker node components](#Install-worker-node-components)
-	- [🟢 (Re)Start worker nodes](#(Re)Start-worker-nodes)
-	- [💀 Kill worker nodes](#Kill-worker-nodes)
+	- [⚙️ Install worker node components](#-Install-worker-node-components)
+	- [🟢 (Re)Start worker nodes](#-ReStart-worker-nodes)
+	- [💀 Kill worker nodes](#-Kill-worker-nodes)
 
 ## 🌳Root and Cluster Orchestrators🌳
 
