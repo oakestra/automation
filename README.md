@@ -6,4 +6,4 @@ Please remove any unique identifiers relevant to your setup so that your scripts
 
 ## Automation Index
 
-1. [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html): Playbooks to automate root/cluster orchestrator and worker nodes deployment in your cluster(s).  
+1. [/ansible](/ansible): [Ansible Playbooks](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) to automate root/cluster orchestrator and worker nodes deployment in your cluster(s).  
