@@ -1,7 +1,7 @@
 # How to automate Oakestra deployment using Ansible Playbooks
 
 Table of content:
-
+- [🪛Prerequisites🪛](#Prerequisites)
 - [🌳Root and Cluster Orchestrators🌳](#Root-and-Cluster-Orchestrators)
 	- [🌱 1 DOC (1 Device One Cluster)](#-1-DOC-1-Device-One-Cluster)
 	- [🌳 Setup with full Root and Clusters hierarchy](#-Setup-with-full-Root-and-Clusters-hierarchy)
@@ -10,6 +10,12 @@ Table of content:
 	- [⚙️ Install worker node components](#-Install-worker-node-components)
 	- [🟢 (Re)Start worker nodes](#-ReStart-worker-nodes)
 	- [💀 Kill worker nodes](#-Kill-worker-nodes)
+
+## 🪛Prerequisites🪛
+Make sure to install the following:
+- apt install ansible
+- pip install Jinja2
+- pip install psutil
 
 ## 🌳Root and Cluster Orchestrators🌳
 
