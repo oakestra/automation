@@ -1,4 +1,4 @@
-- hosts: one-doc
+- hosts: one_doc
   tasks:
     - name: Kill One-DOC components
       shell: "docker compose -f {{ repo_path }}/run-a-cluster/1-DOC.yaml kill"

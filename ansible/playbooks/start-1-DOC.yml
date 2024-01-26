@@ -1,4 +1,4 @@
-- hosts: one-doc
+- hosts: one_doc
   roles:
     - ensure-oakestra-repo-is-cloned
   tasks:
