@@ -16,6 +16,6 @@ Please remove any unique identifiers relevant to your setup so that your scripts
 
     - [/default_application_creation](/api/default_application_creation/):  Login & create a default application with services via default SLA. 
 
-4. [/front_end_ui](/front_end_ui): [Oakestra Dashboard](https://github.com/oakestra/dashboard) automations
+4. [/frontend_ui](/frontend/): [Oakestra Dashboard](https://github.com/oakestra/dashboard) automations
 
     - [/login_and_create_application](/frontend/login_and_create_application/): Login & create an application automatically in a chrome browser. 
