@@ -1,0 +1,9 @@
+#!/bin/bash
+
+TMUX_DEV="tmux send-keys -t dev-cluster"
+
+ro-stop
+
+sleep 2
+
+$TMUX_DEV:Root-Orc "docker compose up --build" Enter

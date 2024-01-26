@@ -1,0 +1,53 @@
+#!/bin/bash
+
+GREEN="\e[0;32m"
+RED="\e[0;31m"
+NC="\e[0m" # No Color
+
+CLUSTER_NAME = <YOUR CLUSTER NAME>
+
+echo_green () {
+        echo -e "${GREEN}$1${NC}"
+}
+
+echo_red () {
+        echo -e "${RED}$1${NC}"
+}
+
+show () {
+#$1: what to check - name
+#$2: how to check - command -> bool
+        if [ $2 == 1 ]; then
+                echo_green "$1 online"
+        else
+                echo_red "$1 offline"
+        fi
+}
+
+nm_out=$(ps -aux | grep NetManager | wc -l); 
+nm_res=$(($nm_out > 1))
+show "NetManager" $nm_res
+
+ne_out=$(ps -aux | grep NodeEngine | wc -l); 
+ne_res=$(($ne_out > 1))
+show "NodeEngine" $ne_res
+
+db1_aux=$(($(docker ps | grep mongo | wc -l) >= 1));
+if [ $db1_aux == 1 ]; then
+    db1_out=$(docker exec mongo bash -c 'mongo --port=10007 --eval "db.adminCommand ({ listDatabases: 1 })" | grep clusters | wc -l')
+    db1_res=$(($db1_out == 1))
+    show "Root-Orc clusters DB" $db1_res
+
+    db11_out=$(docker exec mongo bash -c "mongo --port=10007 clusters --eval \"db.clusters.find({cluster_name: $CLUSTER_NAME}).pretty()\"")
+    db1_last_update=$(echo "$db11_out" | grep last_modified_timestamp | cut -d. -f1 | cut -d: -f2)
+    now=$(date +%s)
+    time_since_last_db1_update=$(($now - $db1_last_update))
+    lupd1=$time_since_last_db1_update
+    if [ $lupd1 -gt 30 ]; then
+            echo_red "  last update more than 30 s ago"
+    else
+            echo_green "  updated $time_since_last_db1_update s ago"
+    fi
+else
+    show "Root-Orc DB" $db1_aux
+fi
