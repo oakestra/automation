@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TMUX_DEV="tmux send-keys -t dev-cluster"
+
+ro-restart
+sleep 10
+co-restart
+sleep 10
+worker-restart
+
+observe

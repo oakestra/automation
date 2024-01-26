@@ -1,0 +1,7 @@
+#!/bin/bash
+
+TMUX_DEV="tmux send-keys -t dev-cluster"
+
+$TMUX_DEV:Root-Orc C-c Enter
+$TMUX_DEV:Root-Orc C-c Enter
+$TMUX_DEV:Root-Orc "docker compose down; clear" Enter

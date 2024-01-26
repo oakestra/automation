@@ -1,0 +1,9 @@
+#!/bin/bash
+
+TMUX_DEV="tmux send-keys -t dev-cluster"
+
+worker-stop
+
+$TMUX_DEV:NetManager "startnetmanager" Enter
+sleep 15
+$TMUX_DEV:NodeEngine "startnodeengine" Enter

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+TMUX_DEV="tmux send-keys -t dev-cluster"
+
+$TMUX_DEV:NodeEngine C-c Enter
+$TMUX_DEV:NodeEngine " clear; clear" Enter
+$TMUX_DEV:NetManager C-c Enter
+$TMUX_DEV:NetManager " clear; clear" Enter
