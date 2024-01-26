@@ -1,0 +1,10 @@
+root:
+  hosts:
+    root-orchestrator: 
+      ansible_host: '<IP OR HOSTNAME>'
+      ansible_ssh_user: '<SSH_USERNAME>''
+      ansible_ssh_pass: '<SSH_PASSWORD>'
+      ansible_become_password: '<ROOT_PASSWORD>'
+      rootIP: '<PUBLIC_IP_OF_THIS_MACHINE>'
+      clusterName: '<NAME_OF_THE_CLUSTER>'
+      clusterLocation: '<LOCATION_OF_THE_CLUSTER>'

@@ -1,0 +1,25 @@
+nodes:
+  hosts:
+    worker-1:
+      ansible_host: '<IP OR HOSTNAME>'
+      ansible_ssh_user: '<SSH_USERNAME>''
+      ansible_ssh_pass: '<SSH_PASSWORD>'
+      ansible_become_password: '<ROOT_PASSWORD>'
+      clusterIP: '<IP_OF_TARGET_CLUSTER_ORCHESTRATOR>'
+      nodeIP: '<IP_OF_THIS_MACHINE_REACHABLE_FROM_OTHER_WORKERS>'
+    worker-2:
+      ansible_host: '<IP OR HOSTNAME>'
+      ansible_ssh_user: '<SSH_USERNAME>''
+      ansible_ssh_pass: '<SSH_PASSWORD>'
+      ansible_become_password: '<ROOT_PASSWORD>'
+      clusterIP: '<IP_OF_TARGET_CLUSTER_ORCHESTRATOR>'
+      nodeIP: '<IP_OF_THIS_MACHINE_REACHABLE_FROM_OTHER_WORKERS>'
+    # ...
+    worker-100:
+      ansible_host: '<IP OR HOSTNAME>'
+      ansible_ssh_user: '<SSH_USERNAME>''
+      ansible_ssh_pass: '<SSH_PASSWORD>'
+      ansible_become_password: '<ROOT_PASSWORD>'
+      clusterIP: '<IP_OF_TARGET_CLUSTER_ORCHESTRATOR>'
+      nodeIP: '<IP_OF_THIS_MACHINE_REACHABLE_FROM_OTHER_WORKERS>'
+    # ...
