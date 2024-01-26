@@ -12,7 +12,7 @@ root:
 
 clusters:
   hosts:
-    cluster-1: 
+    cluster_1: 
       ansible_host: 192.168.178.35
       ansible_ssh_user: alex
       ansible_ssh_pass: alex

@@ -4,32 +4,32 @@ all:
 
 root:
   hosts:
-    root-orchestrator: 
+    root_orchestrator: 
       ansible_host: '<IP OR HOSTNAME>'
-      ansible_ssh_user: '<SSH_USERNAME>''
+      ansible_ssh_user: '<SSH_USERNAME>'
       ansible_ssh_pass: '<SSH_PASSWORD>'
       ansible_become_password: '<ROOT_PASSWORD>'
 
 clusters:
   hosts:
-    cluster-1: 
+    cluster_1: 
       ansible_host: '<IP OR HOSTNAME>'
       ansible_ssh_user: '<SSH_USERNAME>''
       ansible_ssh_pass: '<SSH_PASSWORD>'
       ansible_become_password: '<ROOT_PASSWORD>'
       clusterName: '<NAME_OF_THE_CLUSTER>'
       clusterLocation: '<LOCATION_OF_THE_CLUSTER>'
-    cluster-2: 
+    cluster_2: 
       ansible_host: '<IP OR HOSTNAME>'
-      ansible_ssh_user: '<SSH_USERNAME>''
+      ansible_ssh_user: '<SSH_USERNAME>'
       ansible_ssh_pass: '<SSH_PASSWORD>'
       ansible_become_password: '<ROOT_PASSWORD>'
       clusterName: '<NAME_OF_THE_CLUSTER>'
       clusterLocation: '<LOCATION_OF_THE_CLUSTER>'
     # ...
-    cluster-100: 
+    cluster_100: 
       ansible_host: '<IP OR HOSTNAME>'
-      ansible_ssh_user: '<SSH_USERNAME>''
+      ansible_ssh_user: '<SSH_USERNAME>'
       ansible_ssh_pass: '<SSH_PASSWORD>'
       ansible_become_password: '<ROOT_PASSWORD>'
       clusterName: '<NAME_OF_THE_CLUSTER>'

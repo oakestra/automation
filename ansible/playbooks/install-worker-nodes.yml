@@ -13,15 +13,16 @@
       shell: while lsof /var/lib/dpkg/lock-frontend ; do sleep 10; done; apt -y install bridge-utils cpu-checker libvirt-clients libvirt-daemon qemu qemu-kvm    
       become: true
 
-    - name: Config netmanager public address 
-      environment:
-        PUB_ADDR: "{{ nodeIP }}"
-      shell: sed "s/0.0.0.0/$PUB_ADDR/" netcfg.json > /etc/netmanager/netcfg.json
+    - name: Configure netmanager public address 
+      replace:
+        path: /etc/netmanager/netcfg.json
+        regexp: '0\.0\.0\.0'
+        replace: '{{ nodeIP }}'
       become: true
 
-    - name: Config netmanager Cluster URL
-      environment:
-        CLUSTER_ADDR: "{{ clusterIP }}"
-      shell: 'sed "s/ClusterUrl.*/ClusterUrl\": \"$CLUSTER_ADDR\",/g" /etc/netmanager/netcfg.json > /etc/netmanager/netcfg.tmp.json && cp /etc/netmanager/netcfg.tmp.json /etc/netmanager/netcfg.json'
+    - name: Configure netmanager Cluster URL
+      replace:
+        path: /etc/netmanager/netcfg.json
+        regexp: 'ClusterUrl.*'
+        replace: 'ClusterUrl": "{{ clusterIP }}",'
       become: true
-
