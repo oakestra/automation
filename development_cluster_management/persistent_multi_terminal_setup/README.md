@@ -28,7 +28,8 @@ These commands delegate/pipe the commands to the proper tmux windows/tabs so whe
 
 As a result, one can (re)start or stop the entire dev-cluster with a single command.
 
-For this to properly work you need to first create these panes/tabs in TMUX by hand, rename them just as shown in the screenshot (or as specified in the scripts) and save this setup via the TMUX ressurect shortcut. 
+For this to properly work you need to first create these panes/tabs in TMUX by hand, rename them just as shown in the screenshot (or as specified in the scripts) and save this setup via the TMUX ressurect shortcut.
+Also do not forget to rename ans safe your tmux session as "dev-cluster". E.g. `tmux rename-session -t 0 dev-cluster`
     
 - If people should be interested I can write a new script that can automate this as well.
 
