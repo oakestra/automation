@@ -1,0 +1,7 @@
+#!/bin/bash
+
+TMUX_DEV="tmux send-keys -t dev-cluster"
+
+worker-stop
+ro-stop
+co-stop
