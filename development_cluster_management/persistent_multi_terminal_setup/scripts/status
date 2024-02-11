@@ -38,7 +38,7 @@ if [ $db1_aux == 1 ]; then
     db1_res=$(($db1_out == 1))
     show "Root-Orc clusters DB" $db1_res
 
-    db11_out=$(docker exec mongo bash -c "mongo --port=10007 clusters --eval \"db.clusters.find({cluster_name: $CLUSTER_NAME}).pretty()\"")
+    db11_out=$(docker exec mongo bash -c "mongo --port=10007 clusters --eval \"db.clusters.find({cluster_name: '$CLUSTER_NAME'}).pretty()\"")
     db1_last_update=$(echo "$db11_out" | grep last_modified_timestamp | cut -d. -f1 | cut -d: -f2)
     now=$(date +%s)
     time_since_last_db1_update=$(($now - $db1_last_update))
