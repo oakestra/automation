@@ -4,7 +4,7 @@ GREEN="\e[0;32m"
 RED="\e[0;31m"
 NC="\e[0m" # No Color
 
-CLUSTER_NAME = <YOUR CLUSTER NAME>
+CLUSTER_NAME="<YOUR CLUSTER NAME>"
 
 echo_green () {
         echo -e "${GREEN}$1${NC}"
