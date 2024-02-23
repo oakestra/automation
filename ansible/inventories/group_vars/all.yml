@@ -1,0 +1,6 @@
+oak_repo_path: "{{ ansible_user_dir }}/oakestra_ansible"
+oak_repo_link: "https://github.com/oakestra/oakestra.git"
+oak_repo_version: "v0.4.301"
+oak_net_repo_path: "{{ ansible_user_dir }}/oakestra_net_ansible"
+oak_net_repo_link: "https://github.com/oakestra/oakestra-net.git"
+oak_net_repo_version: "v0.4.301"

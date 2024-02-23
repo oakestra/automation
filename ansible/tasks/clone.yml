@@ -1,5 +1,0 @@
-- name: Cloning {{ repo }} repository at branch {{ branch }}
-  ansible.builtin.git:
-    repo: "{{ repo }}"
-    dest: .
-    version: "{{ branch }}"

@@ -1,0 +1,30 @@
+- hosts: root
+  vars:
+    repo: "{{ oak_repo_link }}"
+    dest: "{{ oak_repo_path }}"
+    version: "{{ oak_repo_version }}"
+  roles:
+    - ensure-oakestra-repo-is-cloned
+  tasks:
+    - name: Run Root Components
+      environment:
+        SYSTEM_MANAGER_URL: '{{ rootIP }}'  
+      shell: cd  {{ repo_path }}/root_orchestrator && nohup docker compose up --build --detach
+      become: True
+
+- hosts: clusters
+  vars:
+    repo: "{{ oak_repo_link }}"
+    dest: "{{ oak_repo_path }}"
+    version: "{{ oak_repo_version }}"
+  roles:
+    - ensure-oakestra-repo-is-cloned
+  tasks:
+    - name: Run Cluster Components
+      environment:
+        SYSTEM_MANAGER_URL: '{{ rootIP }}'
+        CLUSTER_NAME: '{{ clusterName }}'
+        CLUSTER_LOCATION: '{{ clusterLocation }}'
+      shell: cd  {{ repo_path }}/cluster_orchestrator && nohup docker compose up --build --detach  
+      become: True
+
