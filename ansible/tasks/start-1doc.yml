@@ -1,0 +1,7 @@
+- name: Run Root and Cluster Components in 1-DOC mode
+  become: true 
+  environment:
+    CLUSTER_NAME: '{{ clusterName }}'
+    CLUSTER_LOCATION: '{{ clusterLocation }}'
+    SYSTEM_MANAGER_URL: '{{ rootIP }}'  
+  shell: cd oakestra && nohup docker compose -f run-a-cluster/1-DOC.yaml -f run-a-cluster/override-alpha-versions-v301.yaml up --detach 

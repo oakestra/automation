@@ -1,0 +1,2 @@
+- name: Remove Oakestra folder 
+      shell: rm -rf oakestra

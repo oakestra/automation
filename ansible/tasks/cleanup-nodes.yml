@@ -1,0 +1,14 @@
+- name: Remove engines logs 
+  shell: rm -rf /tmp/*.log
+  become: true
+  ignore_errors: true
+
+- name: Remove node engine files
+  shell: rm -rf *NodeEngine*
+  become: true
+  ignore_errors: true
+
+- name: Remove net manager files
+  shell: rm -rf *NetManager*
+  become: true
+  ignore_errors: true

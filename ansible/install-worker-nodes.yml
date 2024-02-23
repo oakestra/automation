@@ -1,27 +1,17 @@
 - hosts: nodes
+
+  vars_prompt:
+
+    - name: release_version
+      prompt: Node/Net manager version version (branch or verison name)? E.g. develop, alpha-v0.4.301, v0.4.204
+      default: "alpha-v0.4.301"
+  
   tasks:
 
-    - name: Install Node Engine
-      shell: wget -c https://github.com/oakestra/oakestra/releases/download/alpha-v0.4.300/NodeEngine_$(dpkg --print-architecture).tar.gz && tar -xzf NodeEngine_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && mv NodeEngine NodeEngine_$(dpkg --print-architecture) && ./install.sh $(dpkg --print-architecture)
-      become: true
+    - include_task: tasks/setup-net-manager.yml
+      net_manager_version: "{{ release_version }}"
 
-    - name: Install Net Manager
-      shell: wget -c https://github.com/oakestra/oakestra-net/releases/download/alpha-v0.4.300/NetManager_$(dpkg --print-architecture).tar.gz && tar -xzf NetManager_$(dpkg --print-architecture).tar.gz && chmod +x install.sh && ./install.sh $(dpkg --print-architecture)
-      become: true
+    - include_task: tasks/setup-node-engine.yml
+      node_engine_version: "{{ release_version }}"
 
-    - name: Install Qemu
-      shell: while lsof /var/lib/dpkg/lock-frontend ; do sleep 10; done; apt -y install bridge-utils cpu-checker libvirt-clients libvirt-daemon qemu qemu-kvm    
-      become: true
-
-    - name: Config netmanager public address 
-      environment:
-        PUB_ADDR: "{{ nodeIP }}"
-      shell: sed "s/0.0.0.0/$PUB_ADDR/" netcfg.json > /etc/netmanager/netcfg.json
-      become: true
-
-    - name: Config netmanager Cluster URL
-      environment:
-        CLUSTER_ADDR: "{{ clusterIP }}"
-      shell: 'sed "s/ClusterUrl.*/ClusterUrl\": \"$CLUSTER_ADDR\",/g" /etc/netmanager/netcfg.json > /etc/netmanager/netcfg.tmp.json && cp /etc/netmanager/netcfg.tmp.json /etc/netmanager/netcfg.json'
-      become: true
 

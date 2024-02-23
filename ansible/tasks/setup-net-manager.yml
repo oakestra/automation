@@ -1,0 +1,9 @@
+- include_task: compile-net-manager.yml
+  when: not "v0." in net_manager_version
+  vars:
+    net_manager_version: "{{ net_manager_version }}"
+
+- include_task: install-net-manager.yml
+  when: "v0." in net_manager_version
+  vars: 
+    net_manager_version: "{{ net_manager_version }}"

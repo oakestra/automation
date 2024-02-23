@@ -1,0 +1,13 @@
+- include_task: compile-node-engine.yml
+  when: not "v0." in node_engine_version
+  vars:
+    node_engine_version: "{{ node_engine_version }}"
+
+- name: install-node-engine.yml
+  when: "v0." in node_engine_version
+  vars: 
+    node_engine_version: "{{ node_engine_version }}"
+
+- name: Install Qemu
+  shell: while lsof /var/lib/dpkg/lock-frontend ; do sleep 10; done; apt -y install bridge-utils cpu-checker libvirt-clients libvirt-daemon qemu qemu-kvm    
+  become: true

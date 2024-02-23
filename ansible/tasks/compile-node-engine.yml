@@ -1,0 +1,17 @@
+- name: Check if directory exists
+  stat:
+    path: "oakestra"
+  register: directory_check
+
+- import_tasks: tasks/clone.yml
+  when: not directory_check.stat.exists
+  vars:
+    repo: "https://github.com/oakestra/oakestra.git"
+    version: "{{ net_manager_version }}"
+
+- name: Check Go version
+  shell: go version
+  register: go_version
+  ignore_errors: true
+
+

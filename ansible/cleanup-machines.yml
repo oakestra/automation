@@ -1,0 +1,8 @@
+- hosts: root,cluster
+  become: true
+  tasks:
+    import_tasks: tasks/cleanup-root-cluster.yml
+
+- hosts: nodes
+  tasks:
+     import_tasks: tasks/cleanup-nodes.yml
