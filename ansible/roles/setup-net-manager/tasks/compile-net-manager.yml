@@ -1,0 +1,55 @@
+- name: Check net repo exists
+  ansible.builtin.include_role: 
+    name: ensure-oakestra-repo-is-cloned
+  vars:
+    repo: "{{ oak_net_repo_link }}"
+    path: "{{ oak_net_repo_path }}"
+    branch: "{{ oak_net_repo_version }}"
+
+- name: Check if Go is installed
+  ansible.builtin.include_role: 
+    name: gantsign.golang
+  vars:
+    golang_version: '1.21.0'
+
+- name: Install go dependencies
+  shell: "cd {{ oak_net_repo_path }}/node-net-manager && /usr/local/go/bin/go get -u"
+  ignore_errors: yes
+
+- name: Build Net Manager
+  shell: "cd {{ oak_net_repo_path }}/node-net-manager && /usr/local/go/bin/go build -o /bin/NetManager NetManager.go"
+  become: true
+
+- name: Create config file directory /etc/netmanager
+  ansible.builtin.file:
+    path: "/etc/netmanager"
+    state: directory
+  ignore_errors: yes
+
+- name: Copy netcfg.json config files of net manager
+  ansible.builtin.copy:
+    src: "{{ oak_net_repo_path }}/node-net-manager/config/netcfg.json"
+    dest: "/etc/netmanager/netcfg.json"
+    remote_src: yes
+  become: true
+
+- name: Copy tuncfg.json config files of net manager
+  ansible.builtin.copy:
+    src: "{{ oak_net_repo_path }}/node-net-manager/config/tuncfg.json"
+    dest: "/etc/netmanager/netcfg.json"
+    remote_src: yes
+  become: true
+
+- name: Config netmanager public address 
+  environment:
+    PUB_ADDR: "{{ nodeIP }}"
+    CFG_DIR: "{{ oak_net_repo_path }}"
+  shell: sed "s/0.0.0.0/$PUB_ADDR/" $CFG_DIR/node-net-manager/config/netcfg.json > /etc/netmanager/netcfg.json
+  become: true
+
+- name: Config netmanager Cluster URL
+  environment:
+    CLUSTER_ADDR: "{{ clusterIP }}"
+    CFG_DIR: "{{ oak_net_repo_path }}"
+  shell: 'sed "s/ClusterUrl.*/ClusterUrl\": \"$CLUSTER_ADDR\",/g" /etc/netmanager/netcfg.json > /etc/netmanager/netcfg.tmp.json && cp /etc/netmanager/netcfg.tmp.json /etc/netmanager/netcfg.json'
+  become: true

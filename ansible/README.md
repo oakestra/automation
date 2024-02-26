@@ -17,6 +17,8 @@ Make sure to install the following:
 - pip install Jinja2
 - pip install psutil
 
+install ansible dependencies with `ansible-galaxy install -r requirements.yml`
+
 ## 🌳Root and Cluster Orchestrators🌳
 
 ### 🌱 1 DOC (1 Device One Cluster)

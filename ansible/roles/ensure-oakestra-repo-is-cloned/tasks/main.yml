@@ -1,10 +1,10 @@
 - name: Ensure dedicated oakestra-ansible directory exists
   ansible.builtin.file:
-    path: "{{ repo_path }}"
+    path: "{{ path }}"
     state: directory
 
-- name: Ensure Oakestra Repo is cloned
+- name: Ensure {{ repo }} Repo is cloned
   ansible.builtin.git:
     repo: "{{ repo }}"
-    dest: "{{ repo_path }}"
+    dest: "{{ path }}"
     version: "{{ branch }}"

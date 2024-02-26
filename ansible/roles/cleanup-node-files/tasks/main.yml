@@ -12,3 +12,8 @@
   shell: rm -rf *NetManager*
   become: true
   ignore_errors: true
+
+- name: Remove net manager config files
+  shell: rm -rf /etc/netmanager
+  become: true
+  ignore_errors: true

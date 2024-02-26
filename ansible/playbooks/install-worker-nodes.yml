@@ -1,15 +1,4 @@
 - hosts: nodes
-
-  vars_prompt:
-
-    - name: release_version
-      prompt: Node/Net manager version version (branch or verison name)? E.g. develop, alpha-v0.4.301, v0.4.204
-      default: "alpha-v0.4.301"
-  
-  tasks:
-
-    - include_task: tasks/setup-net-manager.yml
-      net_manager_version: "{{ release_version }}"
-
-    - include_task: tasks/setup-node-engine.yml
-      node_engine_version: "{{ release_version }}"
+  roles:
+    - setup-net-manager
+    - setup-node-engine

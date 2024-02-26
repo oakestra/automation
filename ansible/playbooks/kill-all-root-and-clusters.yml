@@ -1,17 +1,17 @@
 - hosts: one_doc
   tasks:
     - name: Kill One-DOC components
-      shell: "docker compose -f {{ repo_path }}/run-a-cluster/1-DOC.yaml kill"
+      command: "docker compose -f {{ oak_repo_path }}/run-a-cluster/1-DOC.yaml kill"
       become: True
 
 - hosts: root
   tasks:
     - name: Kill Root components
-      shell: "docker compose -f {{ repo_path }}/root_orchestrator/docker-compose.yml kill"
+      command: "docker compose -f {{ oak_repo_path }}/root_orchestrator/docker-compose.yml kill"
       become: True
 
 - hosts: clusters
   tasks:
     - name: Kill Cluster components
-      shell: "docker compose -f {{ repo_path }}/cluster_orchestrator/docker-compose.yml  kill"
+      command: "docker compose -f {{ oak_repo_path }}/cluster_orchestrator/docker-compose.yml  kill"
       become: True
