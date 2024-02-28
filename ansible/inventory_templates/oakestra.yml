@@ -9,6 +9,7 @@ root:
       ansible_ssh_user: '<SSH_USERNAME>'
       ansible_ssh_pass: '<SSH_PASSWORD>'
       ansible_become_password: '<ROOT_PASSWORD>'
+      additionalComposeOverrides: '' #E.g. additionalClusterOverrides: '-f override-ipv6-enabled.yml' to enable ipv6
 
 clusters:
   hosts:
@@ -19,6 +20,7 @@ clusters:
       ansible_become_password: '<ROOT_PASSWORD>'
       clusterName: '<NAME_OF_THE_CLUSTER>'
       clusterLocation: '<LOCATION_OF_THE_CLUSTER>'
+      additionalComposeOverrides: '' #E.g. additionalClusterOverrides: '-f override-ipv6-enabled.yml' to enable ipv6
     cluster_2: 
       ansible_host: '<IP OR HOSTNAME>'
       ansible_ssh_user: '<SSH_USERNAME>'
@@ -26,6 +28,7 @@ clusters:
       ansible_become_password: '<ROOT_PASSWORD>'
       clusterName: '<NAME_OF_THE_CLUSTER>'
       clusterLocation: '<LOCATION_OF_THE_CLUSTER>'
+      additionalComposeOverrides: ''
     # ...
     cluster_100: 
       ansible_host: '<IP OR HOSTNAME>'
@@ -34,3 +37,4 @@ clusters:
       ansible_become_password: '<ROOT_PASSWORD>'
       clusterName: '<NAME_OF_THE_CLUSTER>'
       clusterLocation: '<LOCATION_OF_THE_CLUSTER>'
+      additionalComposeOverrides: ''
