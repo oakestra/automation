@@ -10,10 +10,10 @@
   ansible.builtin.include_role: 
     name: gantsign.golang
   vars:
-    golang_version: '1.22.0'
+    golang_version: '1.21.3'
 
 - name: Install go dependencies
-  shell: "cd {{ oak_repo_path }}/go_node_engine && /usr/local/go/bin/go get -u"
+  shell: "cd {{ oak_repo_path }}/go_node_engine && /usr/local/go/bin/go get ."
   ignore_errors: yes
 
 - name: Build Node Engine 

@@ -6,14 +6,15 @@
     path: "{{ oak_net_repo_path }}"
     branch: "{{ oak_net_repo_version }}"
 
+# This is installing go in a wierd path. Check if config is correct.
 - name: Check if Go is installed
   ansible.builtin.include_role: 
     name: gantsign.golang
   vars:
-    golang_version: '1.21.0'
+    golang_version: '1.21.3'
 
 - name: Install go dependencies
-  shell: "cd {{ oak_net_repo_path }}/node-net-manager && /usr/local/go/bin/go get -u"
+  shell: "cd {{ oak_net_repo_path }}/node-net-manager && /usr/local/go/bin/go get ."
   ignore_errors: yes
 
 - name: Build Net Manager
@@ -25,6 +26,7 @@
     path: "/etc/netmanager"
     state: directory
   ignore_errors: yes
+  become: true
 
 - name: Copy netcfg.json config files of net manager
   ansible.builtin.copy:

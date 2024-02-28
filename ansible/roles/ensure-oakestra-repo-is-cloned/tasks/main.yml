@@ -8,3 +8,4 @@
     repo: "{{ repo }}"
     dest: "{{ path }}"
     version: "{{ branch }}"
+    force: true
