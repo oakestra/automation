@@ -13,3 +13,4 @@
         CLUSTER_IP: '{{ clusterIP }}'
       shell: 'nohup /bin/NodeEngine -n 6000 -a $CLUSTER_IP -p 10100 {{ additionalNodeEngineParams }} </dev/null >/tmp/nodeengine.log 2>&1 &'
       become: true
+      when:  not ( proxy | default(false) )

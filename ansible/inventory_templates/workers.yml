@@ -9,6 +9,7 @@ nodes:
       nodeIP: '<IP_OF_THIS_MACHINE_REACHABLE_FROM_OTHER_WORKERS>'
       additionalNodeEngineParams: ''
       additionalNetManagerParams: '' #E.g. additionalNetManagerParams: '-D=true' to enable net maanger debug mode 
+      proxy: false #E.g. proxy: true to enable proxy mode for this worker node, defualt: false
     worker_2:
       ansible_host: '<IP OR HOSTNAME>'
       ansible_ssh_user: '<SSH_USERNAME>'
