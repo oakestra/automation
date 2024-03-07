@@ -18,3 +18,11 @@
   shell: "docker rmi -f $(docker images -q)"
   become: True
   ignore_errors: true
+
+- name: Delete existing networks
+  shell: "sudo docker network rm $(sudo docker network ls -q)"
+  become: True
+  ignore_errors: true
+
+
+  

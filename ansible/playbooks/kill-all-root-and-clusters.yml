@@ -10,7 +10,7 @@
       command: "docker compose -f {{ oak_repo_path }}/root_orchestrator/docker-compose.yml kill"
       become: True
 
-- hosts: clusters
+- hosts: cluster
   tasks:
     - name: Kill Cluster components
       command: "docker compose -f {{ oak_repo_path }}/cluster_orchestrator/docker-compose.yml  kill"
