@@ -41,6 +41,7 @@ You can check the component logs inside the target machine using:
 ```
 docker compose -f ~/oakestra_ansible/run-a-cluster/1-DOC.yaml logs
 ```
+**N.b. this will not start the worker nodes, please follow the guide [below](#worker-nodes) to startup the workers**
 
 ### 🌳 Setup with full Root and Clusters hierarchy
 
@@ -52,10 +53,10 @@ N.b. it is better to avoid ssh username and password and aither use a [vault](ht
 Then, if you have [ansible-playbook](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) installed and configured, simply run:
 
 ```
-ansible-playbook playbooks/start-full-root-and-clusters.yml
+ansible-playbook playbooks/unintstall-and-restart-root-clusters-workers.yml
 ```
 
-This command will clone oakestra repo and startup the root orchestrator component and the all the cluster as described in the inventory above. 
+This command will cleanup any pre-existing oakestra installation, clone oakestra repo and startup the root orchestrator component and the all the cluster as described in the inventory above. Finally it will install and run the worker nodes. 
 
 You can check the root logs inside the target machine using:
 ```
@@ -65,6 +66,8 @@ and the cluster logs inside the target machines by using:
 ```
 cd oakestra/cluster_orchestrator ; docker compose logs
 ```
+
+** N.b. if you want to manually start cluster and workers separately you can use the `start-full-root-and-clusters.yml` and then follow the guide [below](#worker-nodes) to start the worker nodes. **
 
 ### 💀 Kill all Root and Cluster instances
 
@@ -76,7 +79,7 @@ Run the following to kill all root and cluster instances (it works for both 1-DO
 ansible-playbook playbooks/kill-all-root-and-clusters.yml
 ```
 
-## 👷‍♀️Worker Nodes👷
+## <a name="worker-node"></a>👷‍♀️Worker Nodes👷
 
 If you have your Root and Cluster orchestrator(s) component(s) running, you now just need to attach some worker nodes! 
 
@@ -101,7 +104,7 @@ This script will start (or, if already running, re-start) all your worker nodes.
 If you have [ansible-playbook](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) installed and configured, simply run:
 
 ```
-ansible-playbook playbooks/restart-nodes.yml
+ansible-playbook playbooks/restart-workers.yml
 ```
 
 This will start the  `NodeEngine` and `NetworkManager` components. The logs are available respectively in `\etc\nodeengine.log` and `\etc\netmanager.log` in the target machines. 
@@ -113,7 +116,7 @@ This script will kill all your worker nodes.
 If you have [ansible-playbook](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) installed and configured, simply run:
 
 ```
-ansible-playbook playbooks/kill-nodes.yml
+ansible-playbook playbooks/kill-workers.yml
 ```
 
 This will kill the  `NodeEngine` and `NetworkManager` components on all nodes.  
