@@ -67,7 +67,7 @@ and the cluster logs inside the target machines by using:
 cd oakestra/cluster_orchestrator ; docker compose logs
 ```
 
-** N.b. if you want to manually start cluster and workers separately you can use the `start-full-root-and-clusters.yml` and then follow the guide [below](#worker-nodes) to start the worker nodes. **
+** N.b. if you want to manually start cluster and workers separately you can use the `start-full-root-and-clusters.yml` instead and then follow the guide [below](#worker-nodes) to start the worker nodes manualy. **
 
 ### 💀 Kill all Root and Cluster instances
 
