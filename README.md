@@ -9,7 +9,7 @@ Please remove any unique identifiers relevant to your setup so that your scripts
 1. [/ansible](/ansible): [Ansible Playbooks](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) to automate root/cluster orchestrator and worker nodes deployment in your cluster(s). 
 
 2. [/development_cluster_management](/development_cluster_management/): [Development Cluster](https://github.com/oakestra/oakestra?tab=readme-ov-file#%EF%B8%8F-how-to-create-a-development-cluster) management and automations - general development setup
-
+    - [/generate_mqtts_certificates] (/development_cluster_management/generate_mqtts_certificates/): Generate certifcate and key files for a authenticated mqtts cluster
     - [/persistent_multi_terminal_setup](/development_cluster_management/persistent_multi_terminal_setup/): Rebootable TMUX configuration with cluster management scripts
 
 3. [/api](/api): [Oakestra API](https://github.com/oakestra/oakestra?tab=readme-ov-file#%F0%9F%A9%BB-use-the-apis-to-deploy-a-new-application-and-check-clusters-status) automations
