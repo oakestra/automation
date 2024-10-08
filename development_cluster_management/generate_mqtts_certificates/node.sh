@@ -1,3 +1,4 @@
+echo "Make sure the env CA_CRT and CA_KEY are set to the respective paths"
 echo "Generating Client key"
 openssl genrsa -aes256 -out client.key 2048
 echo "-------------------------------"
