@@ -1,3 +1,8 @@
+- name: Kill existing NodeEngine & NetManager processes
+  shell: "NodeEngine stop"
+  become: true
+  ignore_errors: true
+
 - name: Install psutil library
   pip:
     name: psutil
