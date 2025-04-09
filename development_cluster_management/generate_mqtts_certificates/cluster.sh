@@ -36,7 +36,7 @@ else
     fi
 fi
 
-openssl x509 -req -in server.csr -CA $CA_CRT_P -CAkey $CA_KEY_P -CAcreateserial -out server.crt -days 365 -sha256 -extfile ~/ext.cnf
+openssl x509 -req -in server.csr -CA $CA_CRT_P -CAkey $CA_KEY_P -CAcreateserial -out server.crt -days 365 -sha256 -extfile ext.cnf
 echo "-------------------------------"
 chmod 0644 server.key   
 
